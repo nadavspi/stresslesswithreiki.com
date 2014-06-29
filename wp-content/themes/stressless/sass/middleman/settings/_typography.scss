@@ -1,0 +1,53 @@
+$base-size: 16px;
+$ratio: major-third() fifth();
+
+$normpx       : $base-size;
+$medpx        : ms(1);
+$smallpx      : ms(-1);
+$xsmallpx     : ms(-2);
+$xxsmallpx    : ms(-3);
+$xxxsmallpx   : ms(-4);
+$largepx      : ms(2);
+$xlargepx     : ms(3);
+$xxlargepx    : ms(5);
+$xxxlargepx   : ms(8);
+
+
+$base-font-size    : $normpx;
+$base-line-height  : $medpx;
+
+
+@mixin serif {
+  font-family: "PT Serif";
+}
+
+@mixin sans {
+  font-family: "Lato";
+  font-weight: 300;
+}
+
+@mixin caption {
+  font-family: "PT Serif Caption";
+  @include adjust-font-size-to(14px);
+  color: #666;
+}
+
+@mixin caption-font {
+  font-family: "PT Serif Caption";
+}
+
+@mixin big-h1 {
+  h1 {
+      @include adjust-font-size-to(ms(8));
+      @include at-breakpoint($small) {
+        @include adjust-font-size-to(ms(5));
+      }
+  }
+}
+
+.lead-text {
+    @include adjust-font-size-to(ms(1));
+    @include adjust-leading-to(1.2);
+}
+
+

@@ -1,0 +1,20 @@
+%button-base {
+  $sb-text-style: "inset";
+  @include sans;
+  text-decoration: none;
+  letter-spacing: 1px;
+
+  &:hover, &:active, &:focus {
+    color: white;
+  }
+}
+.button {
+    $sb-padding: 0.8em 1.5em;
+    @include sassy-button("flat", 0px, 1.3em, $red);
+    @extend %button-base;
+}
+
+.button--blue {
+    @include sassy-button("flat", 0px, 1em, $blue);
+    @extend %button-base;
+}

@@ -1,0 +1,34 @@
+@mixin margin-x($margin)
+  margin-left: $margin
+  margin-right: $margin
+
+@mixin margin-y($margin)
+  margin-top: $margin
+  margin-bottom: $margin
+
+/*
+ * Hide element while retaining visibility for screen readers
+ * From HTML5 Boilerplate
+ * http://h5bp.com/v
+ */
+
+.visuallyhidden 
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+/*
+ * Helpers for centering stuff
+ */ 
+
+.center--text
+  text-align: center
+
+.center--margins
+  margin-left: auto
+  margin-right: auto

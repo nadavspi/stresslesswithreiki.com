@@ -1,0 +1,24 @@
+// Grid settings
+
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1.5em;
+$grid-padding: $gutter-width;
+// $grid-padding: 0;
+
+$mid: 8 56em;
+$small: 4 30em;
+
+// Mixin for showing the grid
+
+@mixin show-grid {
+  .container {
+    @include susy-grid-background;
+    @include at-breakpoint($mid) {
+      @include susy-grid-background;
+    }
+    @include at-breakpoint($small) {
+      @include susy-grid-background;
+    }
+  }
+}

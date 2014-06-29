@@ -1,0 +1,55 @@
+@import nav
+@import buttons
+@import quote
+
+=banner($background: true)
+    padding: rhythm(2) 0
+    // @include span-columns(12);
+    width: 100%
+    @if $background == true 
+        background: $tan
+
+.media
+    .img
+        float: left
+        margin-right: 10px
+        img
+            display: block
+    .img__right
+        float: right
+        margin-left: 10px
+        display: block
+        img
+            display: block
+    .content
+        display: table-cell
+        width: 10000px
+        *width: auto
+        *zoom: 1
+
+
+.testimonial
+    article
+        +span-columns(8.1, 10)
+    img
+        +span-columns(1.5, 10)
+        +omega
+    +at-breakpoint($small)
+        article
+            +span-columns(4)
+        img
+            +span-columns(2)
+            +squish(1, 1)
+            +trailer
+
+.testimonial--invert
+    @extend .testimonial
+    article
+        +omega
+    img
+        +remove-omega
+
+
+
+
+

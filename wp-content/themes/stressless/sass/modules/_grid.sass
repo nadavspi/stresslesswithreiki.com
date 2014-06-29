@@ -1,0 +1,24 @@
+@import susy
+
+$show-grid-backgrounds: false
+
+$total-columns      : 6
+$column-width       : 60px
+$gutter-width       : 20px
+$grid-padding       : $gutter-width
+
+$medium:   8
+$large: 12
+
+$layouts: $total-columns, $medium, $large
+
+// Use body as the container
+body
+  +container($total-columns, $medium, $large)
+
+// Re-apply grid background at each breakpoint
+@each $layout in $layouts
+  +at-breakpoint($layout)
+    html
+      +susy-grid-background
+
