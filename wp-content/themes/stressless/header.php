@@ -23,7 +23,7 @@
 
 <body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>
-  <nav>
+  <nav class="nav nav-main">
     <ul>
         <li><a href="/" id="index">Why Reiki</a></li>
         <li><a href="/classes" id="classes">Learn Reiki</a></li>

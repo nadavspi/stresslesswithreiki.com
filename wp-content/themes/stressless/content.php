@@ -6,7 +6,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry__header">
-		<h1 class="entry__title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+<?php //		<h1 class="entry__title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1> ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry__meta">
