@@ -75,9 +75,21 @@ function stressless_post_types() {
       ),
     )
   );
-  register_taxonomy('class_type', array('classes'));
+  register_taxonomy('class_types', 'classes', array(
+    'label' => 'Class Types',
+    'public' => true,
+  ));
 }
 add_action('init', 'stressless_post_types');
+
+function change_class_title( $title ){
+     $screen = get_current_screen();
+     if  ( 'classes' == $screen->post_type ) {
+          $title = 'Enter internal class title here';
+     }
+     return $title;
+}
+add_filter( 'enter_title_here', 'change_class_title' );
 
 /**
  * Register widgetized area and update sidebar with default widgets.
