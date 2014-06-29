@@ -5,6 +5,9 @@
  * @package stressless
  */
 
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
