@@ -1,51 +1,265 @@
-/*!
- * Theme Name: stressless
- * Theme URI: https://github.com/nadavspi/_s
- * Author: Nadav Spiegelman
- * Author URI: http://nadav.is/
- * Description: Modified stressless (http://underscores.me/) theme
- */
+@import base
+
+.masthead
+  +banner(false)
+
+.masthead__title
+  +adjust-font-size-to(ms(12))
+
+.masthead__subtitle
+  +adjust-font-size-to(ms(4))
+  margin-bottom: 0
+
++at-breakpoint($mid)
+  .masthead__title
+    +adjust-font-size-to(ms(10))
+  .masthead__subtitle
+    +adjust-font-size-to(ms(3))
 
 
-// VENDOR
-// 
-// Vendor dependencies.
++at-breakpoint($small)
+  .masthead__title
+    +adjust-font-size-to(ms(5))
+  .masthead__subtitle
+    +adjust-font-size-to(ms(1))
 
-@import vendor/normalize
+.overview__copy
+  +span-columns(7)
+  +at-breakpoint($mid)
+    +span-columns(8)
+    +trailer
 
-
-// stressless stuff
-// The styles that ship with the stressless theme. Uncomment as needed.
-
-// @import vendor/_s/settings
-// @import vendor/_s/mixins
-// @import vendor/_s/global
-// @import vendor/_s/typography
-// @import vendor/_s/forms
-// @import vendor/_s/layout
-// @import vendor/_s/menu
-// @import vendor/_s/content
-// @import vendor/_s/postformats
-// @import vendor/_s/media
-// @import vendor/_s/navigation
-// @import vendor/_s/comments
-// @import vendor/_s/widgets
-// @import vendor/_s/infinitescroll
-
-
-// BASE 
-//
-// Base: Base typography, element styles
-// Helpers: Miscellaneous helpful mixins and stuff 
-
-@import helpers 
-@import base 
+.overview__video
+  +span-columns(5)
+  +omega
+  +at-breakpoint($mid)
+    +span-columns(8)
+    text-align: center
 
 
 
+.features
+  +span-columns(12)
+  article
+    +span-columns(4)
+    +nth-omega
+  +at-breakpoint($small)
+    display: none
 
-// MODULES
+// $kickback Free video course
 
-// @import modules/grid
-// @import modules/nav
+.kickback
+  +banner
+  header
+    +trailer(2)
+    text-align: center
+  form 
+    +leader(1)
+    @extend %clearfix
 
+.kickback__content 
+  text-align: center
+  
+  div
+    +span-columns(4)
+    +nth-omega(3n)
+    +at-breakpoint($mid)
+      +span-columns(4)
+      &:first-child
+        +span-columns(8)
+        +omega
+    +at-breakpoint($small)
+      width: 100%
+      margin-right: 0
+      float: none
+
+
+
+.kickback__signup
+  +span-columns(5)
+  +at-breakpoint($mid)
+    +span-columns(4)
+    +leader(0)
+
+  +at-breakpoint($small)
+    +span-columns(4)
+    +leader(1)
+
+input
+  // margin: 0 0 20px;
+  margin: 5px 0
+  display: block
+  padding: 10px
+  // width: 250px;
+  width: 100%
+  border: 1px solid #ccc
+  font-size: 1em
+
+select
+  font-size: 1em
+  margin: 5px 0
+  display: block
+  padding: 10px
+  width: 100%
+
+.kickback__button
+  margin: 0.625em 0
+  width: 100%
+// Reiki traning ($learn)
+
+.learn-reiki
+  +span-columns(12)
+
+.learn-reiki__body
+  +span-columns(8)
+  +at-breakpoint($small)
+    +span-columns(4)
+
+.learn-reiki__image
+  +span-columns(4 omega)
+  +at-breakpoint($small)
+    +span-columns(4)
+
+// Our Team
+
+.team__header
+  text-align: center
+
+.member
+  +squish(2, 2)
+  +trailer(4)
+  header
+    text-align: center
+
++at-breakpoint($mid)
+  .member
+    +span-columns(8)
+    +squish(0, 0)
+
+
+// Classes page
+.classes-header
+  color: $grey
+  font-style: italic
+  +span-columns(4.5)
+#classes-ceu
+  +span-columns(7)
+  +omega
+  @extend .lead-text
++at-breakpoint($small)
+  .classes-header, #classes-ceu
+    +span-columns(4)
+.class-info
+  +span-columns(12)
+  +big-h1
+  +leader(0)
+  &:first-child
+    +leader(1)
+  h2
+    @extend .no-trailer
+  h3
+    color: $orange
+  article
+    +span-columns(8)
+  aside
+    +span-columns(4)
+    +omega
+    +caption
+    img
+      max-width: 240px
+  +at-breakpoint($small)
+    article,aside
+      +span-columns(4)
+.class-features
+  +leader(1)
+  +trailer
+
+
+
+
+
+
+  // success $stories page
+
+.stories__header
+  +leader
+
+.stories
+  .testimonial
+    +trailer(3)
+    @extend .testimonial--invert
+    // &:nth-child(2n)
+    //   @extend .testimonial--invert
+
+// $contact
+
+.contact
+  +banner
+  margin-bottom: 0
+  a
+    border: none
+
+.contact__info
+  @extend .float-left
+  @extend .nav
+  @extend .lead-text
+  li
+    margin-left: 2em
+    &:first-child
+      margin-left: 0
+
+.contact__link
+  margin-left: 0.2em
+  color: $blue
+  +at-breakpoint($mid)
+    display: block
+
+.contact__icon
+  font-size: 2em
+  color: $orange
+  vertical-align: middle
+
++at-breakpoint($mid)
+  .contact__info, .contact__social
+    float: left
+    +span-columns(8)
+    display: block
+
+
+// $footer
+
+.footer-main
+  +sans
+  +adjust-font-size-to(15px)
+  clear: both
+  padding: rhythm(1) 0 rhythm(2)
+  width: 100%
+  background: $green
+  color: $tan
+  a
+    color: $terra
+    &:hover
+      color: $tan
+
+.footer__content
+  margin-left: 8px
+  margin-right: 8px
+
+.footer__disclaimer
+  +adjust-font-size-to(11px)
+  +caption-font
+
+.footer__copyright
+  float: left
+
+.footer__nadav
+  float: right
+
++at-breakpoint($small)
+  .footer-main
+    +adjust-font-size-to(11px)
+    padding: rhythm(1) 0 rhythm(4)
+  .footer__nadav
+    float: left
+
+    

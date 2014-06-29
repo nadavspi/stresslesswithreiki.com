@@ -1,7 +1,7 @@
-$base-size: 16px;
-$ratio: major-third() fifth();
+$ms-base: 16px;
+$ms-ratio: $major-third $fifth;
 
-$normpx       : $base-size;
+$normpx       : $ms-base;
 $medpx        : ms(1);
 $smallpx      : ms(-1);
 $xsmallpx     : ms(-2);
