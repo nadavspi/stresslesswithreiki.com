@@ -67,11 +67,12 @@ function stressless_post_types() {
       'labels' => array(
         'menu_name' => 'Classes',
         'name' => 'Classes',
-        'singular_name' => 'Class'
+        'singular_name' => 'Class',
       ),
-      'public' => true,
-      'supports' => array(
-        'title',
+    'public' => true,
+    'publicly_queryable' => false,
+    'supports' => array(
+      'title',
       ),
     )
   );
