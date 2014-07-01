@@ -75,9 +75,10 @@ function stressless_post_types() {
       ),
     )
   );
-  register_taxonomy('class_types', 'classes', array(
+  register_taxonomy('class_type', 'classes', array(
     'label' => 'Class Types',
     'public' => true,
+    'hierarchical' => true
   ));
 }
 add_action('init', 'stressless_post_types');
