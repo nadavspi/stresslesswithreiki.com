@@ -8,29 +8,12 @@
 
 get_header(); ?>
 
-	<main role="main">
+  <main role="main">
     <?php
-    // WP_Query arguments
-    $args = array (
-      'post_type'              => 'classes',
-    );
-
-    // The Query
-    $query = new WP_Query( $args );
-
-    // The Loop
-    if ( $query->have_posts() ) {
-      while ( $query->have_posts() ) {
-        $query->the_post();
-        $class_date = new DateTime(get_field('class_date'));
-        echo $class_date->format('l, F j, Y') . ' from ' . get_field('class_time');
-      }
-    } else {
-      // no posts found
-    }
-
-    // Restore original Post Data
-    wp_reset_postdata();
+      $level1 = new ReikiClasses('level-1');
+      $level2 = new ReikiClasses('level-2');
+      $master = new ReikiClasses('master');
+      $class_data = new ClassData();
     ?>
 
  <div class="container">
@@ -46,9 +29,11 @@ get_header(); ?>
        <header class="class-header">
            <h1>Level 1: Reiki for Beginners</h1>
            <h2 class="double-trailer">Learn the healing art of Reiki in just six hours</h2>
-           <h3 class="no-trailer">Sunday, July 20, 2014 from 11:00 am to 5:00 pm</h3>
-           <h3>Sunday, August 3, 2014 from 11:00 am to 5:00 pm</h3>
-           
+          <?php
+              foreach($level1->classes as $class) {
+                echo $class_data->show($class, 'datetime');
+              }
+          ?>
        </header>
 
        <article>
@@ -59,10 +44,14 @@ get_header(); ?>
            <p>To live a balanced and rewarding life, it’s essential to take good care of yourself before taking care of others.  Many of us give so much to other people that little energy is left for ourselves.  This is the value of Reiki’s potential to heal, relax and center you, day after day.</p>
            <section class="call-to-action">
             <h4>$150, or three payments of $60</h4>
-            <h3 class="no-trailer">Sunday, July 20, 2014 from 11:00 am to 5:00 pm</h3>
-            <h3>Sunday, August 3, 2014 from 11:00 am to 5:00 pm</h3>
-            <a href="https://wg117.infusionsoft.com/app/orderForms/b3922992-cbc4-4ca2-95a2-c1713e346e88" class="button tight">Sign up for July 20</a>  
-            <a href="https://wg117.infusionsoft.com/app/orderForms/2cfdd2fe-fae1-4617-bfa5-3bb84ded1f11" class="button">Sign up for August 3</a>
+            <?php
+                foreach($level1->classes as $class) {
+                  echo $class_data->show($class, 'datetime');
+                }
+                foreach($level1->classes as $class) {
+                  echo $class_data->show($class, 'button');
+                }
+            ?>
             <p>If you need Continuing Education Credits, <a href="http://www.atlantaschoolofmassagecommunity.com/2/workshops.asp">please register through Atlanta School of Massage.</a></p>
        </article>
        <aside>
@@ -95,7 +84,11 @@ get_header(); ?>
               <header>
                   <h1>Level 2: Intermediate Reiki</h1>
                   <h2>Develop a deeper understanding and learn to send long distance Reiki</h2>
-                  <h3>Sunday, July 27, 2014 from 9:00 am to 6:00 pm</h3>
+                  <?php
+                      foreach($level2->classes as $class) {
+                        echo $class_data->show($class, 'datetime');
+                      }
+                  ?>
               </header>
               <article>
                  <p class="lead-text">Our Level 2 Training teaches students how to send Reiki to people who are not present and to address specific emotional and physical conditions. This class is open to Reiki students who have taken the Level 1 class and have been practicing daily self-Reiki for a minimum of 4 weeks.</p>
@@ -109,9 +102,15 @@ get_header(); ?>
                      <li>Use Reiki as a tool to guide you on your spiritual path</li>
                  </ul>
                   <section class="call-to-action">
-                   <h3>Sunday, July 27, 2014 from 9:00 am to 6:00 pm</h3>
                    <h4>$250, or three payments of $99</h4>
-                   <a href="https://wg117.infusionsoft.com/app/orderForms/5df1b7d8-a300-4f33-af0e-2081a49fa65c" class="button">Sign up for July 27</a>
+                  <?php
+                      foreach($level2->classes as $class) {
+                        echo $class_data->show($class, 'datetime');
+                      }
+                      foreach($level2->classes as $class) {
+                        echo $class_data->show($class, 'button');
+                      }
+                  ?>
                    <p>If you need Continuing Education Credits, <a href="http://www.atlantaschoolofmassagecommunity.com/2/workshops.asp">please register through Atlanta School of Massage.</a></p>
               </article>
               <aside>
@@ -139,8 +138,11 @@ get_header(); ?>
                      <header>
                          <h1>Master Level: Advanced Reiki</h1>
                          <h2>Become certified as a Reiki Master, authorized to teach</h2>
-                         <h3 class="no-trailer">Sunday, August 24, 2014 from 9:00 am to 6:00 pm</h3>
-                         <h3>Sunday, November 16, 2014 from 9:00 am to 6:00 pm</h3>
+                          <?php
+                              foreach($master->classes as $class) {
+                                echo $class_data->show($class, 'datetime');
+                              }
+                          ?>
                      </header>
                      <article>
                        <p class="lead-text"> Becoming a Reiki Master is an empowering process of self-development, the final step in your Reiki Training. Reiki Level 2 practitioners can benefit from completing the training whether or not they plan to teach. Our focus when teaching the Master Level is to provide our students with knowledge, skills and an increased level of vibration to deepen their connection and understanding of Reiki.</p>
@@ -156,10 +158,15 @@ get_header(); ?>
                           <li>Michal’s comprehensive Reiki Teaching Manual for all levels.</li>
                       </ul>
                          <section class="call-to-action">
-                          <h3 class="no-trailer">Sunday, August 24, 2014 from 9:00 am to 6:00 pm</h3>
-                          <h3>Sunday, November 16, 2014 from 9:00 am to 6:00 pm</h3>
                           <h4>$650, or three payments of $240</h4>
-                          <a href="https://wg117.infusionsoft.com/app/orderForms/f69a670b-fc78-48e2-a11e-35c36e54d256" class="button">Sign up</a>
+                          <?php
+                              foreach($master->classes as $class) {
+                                echo $class_data->show($class, 'datetime');
+                              }
+                              foreach($master->classes as $class) {
+                                echo $class_data->show($class, 'button');
+                              }
+                          ?>
                           <p>If you need Continuing Education Credits, <a href="http://www.atlantaschoolofmassagecommunity.com/2/workshops.asp">please register through Atlanta School of Massage.</a></p>
                      </article>
                      <aside>

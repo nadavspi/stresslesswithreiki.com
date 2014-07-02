@@ -8,6 +8,8 @@
 remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_excerpt', 'wpautop' );
 
+require get_template_directory() . '/inc/reiki_classes.php';
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
