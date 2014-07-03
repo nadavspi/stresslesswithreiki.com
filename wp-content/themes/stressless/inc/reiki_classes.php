@@ -53,13 +53,11 @@ class ReikiClasses {
 
     $args = array (
       'post_type'  => 'classes',
-      /* 'class_type' => $class_type, */
-      /* 'meta_query' => array( */
-      /*   'key' => 'field_53a5ca9c5786f', */
-        /* 'type' => 'DATE', */
-        /* 'compare' => '>', */
-        /* 'value' => '20110615', */
-      /* ), */
+      'meta_key' => 'class_date',
+      'meta_value' => date('Ymd'),
+      'meta_compare' => '>=',
+      'orderby' => 'meta_value_num',
+      'order' => 'ASC',
     );
 
     $query = new WP_Query($args);
@@ -69,17 +67,18 @@ class ReikiClasses {
         $query->the_post();
         $class = [];
 
-        $class_type_terms = get_the_terms(get_the_ID(), 'class_type');
+        $class_type_terms = get_the_terms(get_the_ID(), 'class_types');
         foreach($class_type_terms as $class_type) {
           $class['type'] = $class_type->name;
         }
-        $class_location_terms = get_the_terms(get_the_ID(), 'class_location');
+        $class_location_terms = get_the_terms(get_the_ID(), 'class_locations');
         foreach($class_location_terms as $class_location) {
           $class['location'] = $class_location->name;
         }
 
         $class_date = new DateTime(get_field('class_date'));
-        $class['date'] = $class_date->format('l, F j, Y');  
+        $class['date-raw'] = get_field('class_date');
+        $class['date'] = $class_date->format('F j, Y');  
         $class['time'] = get_field('class_time');
         $class['link'] = get_field('class_link');
 
@@ -94,17 +93,18 @@ class ReikiClasses {
 
 }
 
+class ReikiClassLocations {
+  public $locations;
 
-/* Echos data for use in templates. Accepts output of getClasses */
-class classData {
-  public function echoDatetime() {
-    foreach($classes as $class) {
-      echo '<h3>' . $class['day'] . ', ' . $class['date'] . ', ' . $class['year'] . ' from ' . $class['time'] . '</h3>';
-    }
+  public function __construct() {
+    $this->getClassLocations();
   }
-  public function echoButtons($classes) {
-    foreach($classes as $class) {
-      echo '<a href="' . $class['link'] . '" class="button">Sign up for ' . $class['date'] . '</a>';
-    }
+
+  public function getClassLocations() {
+    $this->locations = [];
+
+
+
+    return $this->locations;
   }
 }
