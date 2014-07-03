@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^images/(.*) wp-content/themes/stressless/images/$1
