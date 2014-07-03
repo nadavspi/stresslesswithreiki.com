@@ -23,13 +23,11 @@
 
 <body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>
-  <nav class="nav nav-main">
-    <ul>
-        <li><a href="/" id="index">Why Reiki</a></li>
-        <li><a href="/classes" id="classes">Learn Reiki</a></li>
-        <li><a href="/team" id="team">Our Team</a></li>
-        <li><a href="/stories" id="stories">Success Stories</a></li>
-        <li><a href="#contact-us">Contact Us</a></li>   
-    </ul>
-    <a href="#" id="nav-main__toggle">Menu</a>
-  </nav>
+<nav class="nav nav-main">
+  <?php wp_nav_menu(array(
+    'theme_location' => 'primary',
+    'container' => false,
+  ));
+  ?>
+  <a href="#" id="nav-main__toggle">Menu</a>
+</nav>
