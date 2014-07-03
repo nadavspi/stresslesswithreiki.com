@@ -69,6 +69,18 @@ foreach($class_descriptions_query->classes as $class):
               </tbody>
               </table>
             </section>
+            <section class="class-locations">
+              <h2>Class Locations</h2>
+<?php
+$locations = get_terms('class_locations');
+foreach($locations as $location): 
+?>
+<h4><?php echo $location->name; ?></h4>
+<?php echo wpautop($location->description); ?>
+<?php
+endforeach;
+?>
+            </section>
 
           </div>
         </main>
