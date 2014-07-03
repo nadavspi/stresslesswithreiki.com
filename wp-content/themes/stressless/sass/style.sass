@@ -189,11 +189,26 @@ select
 
 .class-schedule
   +span-columns(12)
+  table
+    width: 100%
   tr
     border-bottom: 1px solid #ccc
   td 
-    padding: 1em 2em
+    padding: ms(0)
+  thead td
+    padding-bottom: ms(-4)
+    +sans
+    font-weight: 400
+  tbody td
+    font-size: 1.1em
+  .button
+    font-size: 1em
 
+.class-locations
+  +span-columns(12)
+  h4
+    margin-bottom: 0
+    font-weight: 400
 
   // success $stories page
 
