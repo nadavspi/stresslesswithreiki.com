@@ -29,7 +29,7 @@
     <article class="footer__disclaimer">Disclaimer: Reiki treatments are not a substitute for medical diagnosis and treatment, and no medical claims are made regarding these treatments. People with serious conditions should consult their doctor.</article>
 
     <article class="footer__copyright">&copy; 2014 Balanced Moments LLC. All Rights Reserved. Located in Atlanta, GA.</article>
-    <aside class="footer__nadav">Web design by <a href="http://nadav.is">Nadav Spiegelman</a></aside>
+    <aside class="footer__nadav">Website by <a href="http://nadav.is">Nadav Spiegelman</a></aside>
 
     </div>
 </footer>
