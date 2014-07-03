@@ -1,5 +1,6 @@
 .container {
     @include container($total-columns, $mid, $small);
+    max-width: 64.5em !important;
 }
 
 .grid-row {
