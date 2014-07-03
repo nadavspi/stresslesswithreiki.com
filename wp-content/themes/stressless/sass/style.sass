@@ -165,6 +165,10 @@ select
     +span-columns(4)
     +omega
     +caption
+    ul 
+      list-style-position: inside
+      +at-breakpoint($small)
+        list-style-position: outside
     img
       max-width: 240px
   +at-breakpoint($small)
@@ -174,7 +178,9 @@ select
   +leader(1)
   +trailer
 
-
+.call-to-action
+  .button + .button
+    margin-left: 0.5em
 
 
 
