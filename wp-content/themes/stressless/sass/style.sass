@@ -203,6 +203,13 @@ select
     font-size: 1.1em
   .button
     font-size: 1em
+  +at-breakpoint($small)
+    thead
+      display: none
+    td
+      display: block
+      width: 50%
+      float: left
 
 .class-locations
   +span-columns(12)
