@@ -78,12 +78,12 @@ function stressless_post_types() {
       ),
     )
   );
-  register_taxonomy('class_type', 'classes', array(
+  register_taxonomy('class_types', 'classes', array(
     'label' => 'Class Types',
     'public' => true,
     'hierarchical' => true
   ));
-  register_taxonomy('class_location', 'classes', array(
+  register_taxonomy('class_locations', 'classes', array(
     'label' => 'Class Locations',
     'public' => true,
     'hierarchical' => true
