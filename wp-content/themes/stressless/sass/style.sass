@@ -151,14 +151,13 @@ select
     +span-columns(4)
 .class-info
   +span-columns(12)
-  +big-h1
   +leader(0)
   &:first-child
     +leader(1)
-  h2
-    @extend .no-trailer
   h3
     color: $orange
+  .lead-text
+    max-width: 40em
   article
     +span-columns(8)
   aside
@@ -174,6 +173,12 @@ select
   +at-breakpoint($small)
     article,aside
       +span-columns(4)
+  .read-more
+    // display: inline-block
+  .additional
+    display: none
+    margin-top: 2em
+
 .class-features
   +leader(1)
   +trailer
@@ -182,7 +187,12 @@ select
   .button + .button
     margin-left: 0.5em
 
-
+.class-schedule
+  +span-columns(12)
+  tr
+    border-bottom: 1px solid #ccc
+  td 
+    padding: 1em 2em
 
 
   // success $stories page
