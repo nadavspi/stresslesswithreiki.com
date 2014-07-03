@@ -17,5 +17,4 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-	<?php edit_post_link( __( 'Edit', 'stressless' ), '<footer class="entry__meta"><span class="entry__edit">', '</span></footer>' ); ?>
 </article><!-- #post-## -->
