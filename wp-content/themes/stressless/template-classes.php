@@ -12,7 +12,7 @@ get_header(); ?>
     <header class="section-header">
       <h2 class="classes-header">Reiki Classes in Atlanta, GA</h2>
       <aside id="classes-ceu">
-        <p>Classes are approved for Continuing Education Credits through Atlanta School of Massage. Each class is 6 CEUs.</p>
+        <p>Classes are approved for Continuing Education Credits through Atlanta School of Massage and Heal Center Atlanta.</p>
       </aside>
     </header>
     <hr>
@@ -40,7 +40,7 @@ foreach($class_descriptions_query->classes as $class):
         <hr>
 <?php endforeach; ?>
             <section class="class-schedule">
-              <h1>Upcoming Class Schedule</h1>
+              <h1>Upcoming Reiki Class Schedule</h1>
               <?php
                 $classes_query = new ReikiClasses();
               ?>
@@ -58,7 +58,10 @@ foreach($class_descriptions_query->classes as $class):
                   foreach($classes_query->classes as $class):
                     ?>
                     <tr>
-                    <td><?php echo $class['date']; ?></td>
+                    <td>
+		      <div><?php echo $class['date']; ?></div>
+		      <div><?php echo $class['time']; ?></div>
+		    </td>
                     <td><?php echo $class['type']; ?></td>
                     <td><?php echo $class['location']; ?></td>
                     <td><a href="<?php echo $class['link']; ?>" class="button">Sign up</a></td>
